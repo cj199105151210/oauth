@@ -1,0 +1,35 @@
+server:
+  port: 8888
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 20
+        min-idle: 0
+    timeout: 2000
+  datasource:
+    url: jdbc:mysql://localhost:3306/oauth?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  security:
+    oauth2:
+      client:
+        redirectUris: http://localhost:9999/webjars/springfox-swagger-ui/o2c.html,http://localhost:9998/webjars/springfox-swagger-ui/o2c.html
+        clientId: demoClient
+        clientSecret: demoSecret
+        authorizedGrantTypes: authorization_code,client_credentials, password, refresh_token,implicit
+        scopes: read,write
+        resourceIds: oauth2-resource
+        accessTokenValiditySeconds: 3600
+        refreshTokenValiditySeconds: 3600
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
