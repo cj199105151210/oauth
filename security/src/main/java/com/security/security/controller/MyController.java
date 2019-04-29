@@ -1,6 +1,7 @@
 package com.security.security.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,5 +35,10 @@ public class MyController {
     @RequestMapping(value = "/admin/b",method = RequestMethod.GET)
     public Object admin2(){
         return "admin";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "hello,java";
     }
 }
